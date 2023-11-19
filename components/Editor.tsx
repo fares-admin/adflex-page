@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable global-require */
 import { ContentState, EditorState, convertToRaw } from 'draft-js'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
@@ -59,15 +60,17 @@ const RichTextEditor = ({
   }, [editorState, mounted])
 
   return (
-    <Editor
-      editorState={stateEdit}
-      toolbarClassName="toolbarClassName"
-      wrapperClassName="wrapperClassName"
-      editorClassName="editorClassName"
-      onEditorStateChange={(state) => {
-        if (!disable) setStateEdit(state)
-      }}
-    />
+    <>
+      <Editor
+        editorState={stateEdit}
+        toolbarClassName="toolbarClassName"
+        wrapperClassName="wrapperClassName"
+        editorClassName="editorClassName"
+        onEditorStateChange={(state) => {
+          if (!disable) setStateEdit(state)
+        }}
+      />
+    </>
   )
 }
 
